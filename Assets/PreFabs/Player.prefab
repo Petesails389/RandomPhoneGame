@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6700491689723533949}
   - component: {fileID: 6700491689723533946}
   - component: {fileID: 6700491689723533947}
-  - component: {fileID: 6700491689723533951}
   - component: {fileID: 5357537884804092911}
+  - component: {fileID: 6700491689723533951}
+  - component: {fileID: 2010307404635578060}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -124,21 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
---- !u!114 &6700491689723533951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6700491689723533944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689f4d35d5dcbad4b84c84f70d18a356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 80
-  rb: {fileID: 6700491689723533947}
-  eventSystem: {fileID: 0}
 --- !u!95 &5357537884804092911
 Animator:
   serializedVersion: 3
@@ -158,6 +144,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6700491689723533951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700491689723533944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689f4d35d5dcbad4b84c84f70d18a356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 80
+  rb: {fileID: 6700491689723533947}
+  eventSystem: {fileID: 0}
+--- !u!114 &2010307404635578060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700491689723533944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa0d511944fcd562bfc0819eac975ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5357537884804092911}
 --- !u!1 &6700491689748695359
 GameObject:
   m_ObjectHideFlags: 0

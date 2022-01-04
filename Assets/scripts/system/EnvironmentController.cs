@@ -76,11 +76,13 @@ public class EnvironmentController : MonoBehaviour
         if(paused){
             paused = false;
             (player.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D).simulated = true;
+            (player.GetComponent(typeof(AnimationController)) as AnimationController).Play();
 
         }
         else{
             paused = true;
             (player.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D).simulated = false;
+            (player.GetComponent(typeof(AnimationController)) as AnimationController).Pause();
         }
     }
 
