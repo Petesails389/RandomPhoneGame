@@ -27,10 +27,10 @@ public class EnvironmentController : MonoBehaviour
         spawnTimer = spawnDist*2f;
 
         //spawns in platforms to start
-        platforms.Add(Instantiate(platformPrefab, new Vector3(-15, -5, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(-5, -5, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(5, -5, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(15, -5, 0), Quaternion.identity));
+        platforms.Add(Instantiate(platformPrefab, new Vector3(-15, -4, 0), Quaternion.identity));
+        platforms.Add(Instantiate(platformPrefab, new Vector3(-5, -4, 0), Quaternion.identity));
+        platforms.Add(Instantiate(platformPrefab, new Vector3(5, -4, 0), Quaternion.identity));
+        platforms.Add(Instantiate(platformPrefab, new Vector3(15, -4, 0), Quaternion.identity));
     }
 
     void Update()
@@ -48,12 +48,12 @@ public class EnvironmentController : MonoBehaviour
             if(platforms[0].transform.position.x < -15){
                 Destroy(platforms[0]);
                 platforms.RemoveAt(0);
-                platforms.Add(Instantiate(platformPrefab, new Vector3(15, -5, 0), Quaternion.identity));
+                platforms.Add(Instantiate(platformPrefab, new Vector3(15, -4, 0), Quaternion.identity));
             }
 
             //Obstacle controll
             if(spawnTimer <= 0f){
-                obstacles.Add(Instantiate(obstaclePrefab, new Vector3(15, -4, 0), Quaternion.identity));
+                obstacles.Add(Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity));
                 spawnTimer = Random.Range(-spawnVariability,spawnVariability) + spawnDist;
             }
             else{
