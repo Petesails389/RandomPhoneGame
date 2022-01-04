@@ -9,4 +9,9 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene("MainGameScene");
     }
+    
+    public void menuLoad()
+    {
+        SceneManager.LoadScene("startMenu");
+    }
 }

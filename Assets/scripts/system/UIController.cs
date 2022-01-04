@@ -30,7 +30,6 @@ public class UIController : MonoBehaviour
         mainCanvas.SetActive(false);
         if(pauseCanvas.activeSelf == false){
             pauseCanvas.SetActive(true);
-            controller.pausePlay();
         }
     }
 }

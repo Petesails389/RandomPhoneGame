@@ -402,6 +402,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446713610}
   m_CullTransparentMesh: 1
+--- !u!1 &454692209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6700491689723533944, guid: dd0bc7c0a9c04764b9b5004d05a956fd, type: 3}
+  m_PrefabInstance: {fileID: 192488576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752151055
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +458,7 @@ MonoBehaviour:
   spawnVariability: 5
   platformPrefab: {fileID: 6039928382459586813, guid: a93add649d873c3c3ae5ab09a2fb3683, type: 3}
   obstaclePrefab: {fileID: 3950087582641846358, guid: c6193c1f6c0ba0c3fa52225b7fff7dd3, type: 3}
+  player: {fileID: 454692209}
 --- !u!114 &752151058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65944086a72b2af70a4ead3969010ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCanvas: {fileID: 0}
-  pauseCanvas: {fileID: 0}
+  mainCanvas: {fileID: 872699660}
+  pauseCanvas: {fileID: 390204874}
 --- !u!1 &810348906
 GameObject:
   m_ObjectHideFlags: 0

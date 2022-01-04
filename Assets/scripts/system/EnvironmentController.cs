@@ -83,4 +83,10 @@ public class EnvironmentController : MonoBehaviour
             (player.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D).simulated = false;
         }
     }
+
+    public void endGame()
+    {
+        (gameObject.GetComponent(typeof(UIController)) as UIController).deathUItoggle();
+        paused = true;
+    }
 }
