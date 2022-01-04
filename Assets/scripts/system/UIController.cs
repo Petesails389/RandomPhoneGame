@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] GameObject mainCanvas;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseCanvas;
     
     private EnvironmentController controller;
@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
     }
     public void deathUItoggle()
     {
-        mainCanvas.SetActive(false);
+        pauseButton.SetActive(false);
         if(pauseCanvas.activeSelf == false){
             pauseCanvas.SetActive(true);
         }

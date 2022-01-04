@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnvironmentController : MonoBehaviour
 {
@@ -14,17 +16,24 @@ public class EnvironmentController : MonoBehaviour
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject scoreUI;
 
     bool paused = false;
     List<GameObject> platforms = new List<GameObject>();
     List<GameObject> obstacles = new List<GameObject>();
     float currentSpeed;
     float spawnTimer;
+    Text scoreText;
+    float score;
 
     void Start()
     {
         currentSpeed = baseSpeed;
-        spawnTimer = spawnDist*2f;
+        spawnTimer = spawnDist;
+
+        score = 0f;
+        scoreText = scoreUI.GetComponent(typeof(Text)) as Text;
+        scoreText.text = ((int) Math.Floor(score)).ToString();
 
         //spawns in platforms to start
         platforms.Add(Instantiate(platformPrefab, new Vector3(-15, -4, 0), Quaternion.identity));
@@ -36,6 +45,9 @@ public class EnvironmentController : MonoBehaviour
     void Update()
     {
         if(paused == false){
+            score += Time.deltaTime * currentSpeed;
+            scoreText.text = ((int) Math.Floor(score)).ToString();
+
             //variable setup
             if(currentSpeed < maxSpeed){
                 currentSpeed += currentSpeed * Time.deltaTime * (speedIncPercent/100);
@@ -54,7 +66,7 @@ public class EnvironmentController : MonoBehaviour
             //Obstacle controll
             if(spawnTimer <= 0f){
                 obstacles.Add(Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity));
-                spawnTimer = Random.Range(-spawnVariability,spawnVariability) + spawnDist;
+                spawnTimer = UnityEngine.Random.Range(-spawnVariability,spawnVariability) + spawnDist;
             }
             else{
                 spawnTimer -= currentSpeed * Time.deltaTime;
