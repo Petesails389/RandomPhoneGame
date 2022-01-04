@@ -225,8 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   maxSpeed: 25
-  speedIncPercent: 100
+  speedIncPercent: 1
+  spawnDist: 15
+  spawnVariability: 5
   platformPrefab: {fileID: 6039928382459586813, guid: a93add649d873c3c3ae5ab09a2fb3683, type: 3}
+  obstaclePrefab: {fileID: 3950087582641846358, guid: c6193c1f6c0ba0c3fa52225b7fff7dd3, type: 3}
 --- !u!1 &1025863153
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,14 +8,20 @@ public class environmentController : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float speedIncPercent;
 
+    [SerializeField] float spawnDist;
+    [SerializeField] float spawnVariability;
+
     [SerializeField] GameObject platformPrefab;
+    [SerializeField] GameObject obstaclePrefab;
 
-    List<GameObject> platforms = new List<GameObject>();    
+    List<GameObject> platforms = new List<GameObject>();
+    List<GameObject> obstacles = new List<GameObject>();
     float currentSpeed;
-
+    float spawnTimer;
     void Start()
     {
         currentSpeed = baseSpeed;
+        spawnTimer = spawnDist*2f;
 
         //spawns in platforms to start
         platforms.Add(Instantiate(platformPrefab, new Vector3(-15, -5, 0), Quaternion.identity));
@@ -33,7 +39,6 @@ public class environmentController : MonoBehaviour
 
         //sort out the platform movement and recycling
         foreach(GameObject platform in platforms){
-            //float newX = platform.transform.position.x ;
             platform.transform.Translate(new Vector3(- currentSpeed * Time.deltaTime, 0,0),Space.World);
         }
         if(platforms[0].transform.position.x < -15){
@@ -42,7 +47,23 @@ public class environmentController : MonoBehaviour
             platforms.Add(Instantiate(platformPrefab, new Vector3(15, -5, 0), Quaternion.identity));
         }
 
-        //spawns and destroys obsticals
+        //Obstacle controll
+        if(spawnTimer <= 0f){
+            obstacles.Add(Instantiate(obstaclePrefab, new Vector3(15, -4, 0), Quaternion.identity));
+            spawnTimer = Random.Range(-spawnVariability,spawnVariability) + spawnDist;
+        }
+        else{
+            spawnTimer -= currentSpeed * Time.deltaTime;
+        }
 
+        foreach(GameObject obstacle in obstacles){
+            obstacle.transform.Translate(new Vector3(- currentSpeed * Time.deltaTime, 0,0),Space.World);
+        }
+        if(obstacles.Count > 0){
+            if(obstacles[0].transform.position.x < -15){
+                    Destroy(obstacles[0], 1);
+                    obstacles.RemoveAt(0);
+            }
+        }  
     }
 }
