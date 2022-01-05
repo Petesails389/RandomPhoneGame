@@ -14,4 +14,8 @@ public class AnimationController : MonoBehaviour
     {
         animator.speed = 1;
     }
+    public void Kill()
+    {
+        animator.SetBool("Dead", true);
+    }
 }

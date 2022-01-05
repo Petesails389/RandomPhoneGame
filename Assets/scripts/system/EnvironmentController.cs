@@ -101,6 +101,7 @@ public class EnvironmentController : MonoBehaviour
     public void endGame()
     {
         (gameObject.GetComponent(typeof(UIController)) as UIController).deathUItoggle();
+        (player.GetComponent(typeof(AnimationController)) as AnimationController).Kill();
         paused = true;
     }
 }
