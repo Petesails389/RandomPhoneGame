@@ -15,13 +15,13 @@ public class EnvironmentController : MonoBehaviour
 
     [SerializeField] GameObject platformPrefab;
     [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] GameObject wallNormalPrefab;
     [SerializeField] GameObject player;
     [SerializeField] GameObject scoreUI;
 
-    bool paused = false;
-    List<GameObject> platforms = new List<GameObject>();
-    List<GameObject> obstacles = new List<GameObject>();
-    float currentSpeed;
+    public bool paused = false;
+    public float currentSpeed;
+
     float spawnTimer;
     Text scoreText;
     float score;
@@ -35,51 +35,29 @@ public class EnvironmentController : MonoBehaviour
         scoreText = scoreUI.GetComponent(typeof(Text)) as Text;
         scoreText.text = ((int) Math.Floor(score)).ToString();
 
-        //spawns in platforms to start
-        platforms.Add(Instantiate(platformPrefab, new Vector3(-15, -4, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(-5, -4, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(5, -4, 0), Quaternion.identity));
-        platforms.Add(Instantiate(platformPrefab, new Vector3(15, -4, 0), Quaternion.identity));
+        //spawns in platforms and walls to start
+        (Instantiate(platformPrefab, new Vector3(0,0,0), Quaternion.identity).GetComponent(typeof(Scroller)) as Scroller).Spawn();
+        (Instantiate(wallNormalPrefab, new Vector3(0,0,0), Quaternion.identity).GetComponent(typeof(Scroller)) as Scroller).Spawn();
     }
 
     void Update()
     {
         if(paused == false){
+            //variable setup
             score += Time.deltaTime * currentSpeed;
             scoreText.text = ((int) Math.Floor(score)).ToString();
 
-            //variable setup
             if(currentSpeed < maxSpeed){
                 currentSpeed += currentSpeed * Time.deltaTime * (speedIncPercent/100);
             }
 
-            //sort out the platform movement and recycling
-            foreach(GameObject platform in platforms){
-                platform.transform.Translate(new Vector3(- currentSpeed * Time.deltaTime, 0,0),Space.World);
-            }
-            if(platforms[0].transform.position.x < -15){
-                Destroy(platforms[0]);
-                platforms.RemoveAt(0);
-                platforms.Add(Instantiate(platformPrefab, new Vector3(15, -4, 0), Quaternion.identity));
-            }
-
             //Obstacle controll
             if(spawnTimer <= 0f){
-                obstacles.Add(Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity));
+                Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity);
                 spawnTimer = UnityEngine.Random.Range(-spawnVariability,spawnVariability) + spawnDist;
             }
             else{
                 spawnTimer -= currentSpeed * Time.deltaTime;
-            }
-
-            foreach(GameObject obstacle in obstacles){
-                obstacle.transform.Translate(new Vector3(- currentSpeed * Time.deltaTime, 0,0),Space.World);
-            }
-            if(obstacles.Count > 0){
-                if(obstacles[0].transform.position.x < -15){
-                        Destroy(obstacles[0], 1);
-                        obstacles.RemoveAt(0);
-                }
             }
         }
     }

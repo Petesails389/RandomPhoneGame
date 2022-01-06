@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6700491689723533949, guid: dd0bc7c0a9c04764b9b5004d05a956fd, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700491689723533949, guid: dd0bc7c0a9c04764b9b5004d05a956fd, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1974715055
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd0bc7c0a9c04764b9b5004d05a956fd, type: 3}
 --- !u!1 &390204874
@@ -471,6 +479,7 @@ MonoBehaviour:
   spawnVariability: 5
   platformPrefab: {fileID: 6039928382459586813, guid: a93add649d873c3c3ae5ab09a2fb3683, type: 3}
   obstaclePrefab: {fileID: 3950087582641846358, guid: c6193c1f6c0ba0c3fa52225b7fff7dd3, type: 3}
+  wallNormalPrefab: {fileID: 2020636393025604744, guid: 9f94aa1cfad1639c6b6cffbebd50f717, type: 3}
   player: {fileID: 454692209}
   scoreUI: {fileID: 1556810872}
 --- !u!114 &752151058
