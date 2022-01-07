@@ -18,4 +18,12 @@ public class AnimationController : MonoBehaviour
     {
         animator.SetBool("Dead", true);
     }
+    public void Jump()
+    {
+        animator.SetTrigger("Jump");
+    }
+    public void Land()
+    {
+        animator.SetTrigger("Land");
+    }
 }

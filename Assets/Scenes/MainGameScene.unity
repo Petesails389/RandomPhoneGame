@@ -482,6 +482,8 @@ MonoBehaviour:
   wallNormalPrefab: {fileID: 2020636393025604744, guid: 9f94aa1cfad1639c6b6cffbebd50f717, type: 3}
   player: {fileID: 454692209}
   scoreUI: {fileID: 1556810872}
+  paused: 0
+  currentSpeed: 0
 --- !u!114 &752151058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

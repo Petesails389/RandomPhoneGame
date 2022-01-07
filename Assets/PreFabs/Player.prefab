@@ -159,6 +159,7 @@ MonoBehaviour:
   jumpForce: 80
   rb: {fileID: 6700491689723533947}
   eventSystem: {fileID: 0}
+  animationCon: {fileID: 2010307404635578060}
 --- !u!114 &2010307404635578060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +238,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   colider: {fileID: 0}
+  animationCon: {fileID: 2010307404635578060}

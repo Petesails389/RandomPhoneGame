@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject eventSystem;
+    [SerializeField] AnimationController animationCon;
 
     groundCheck groundCheck;
     bool grounded;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         rb.AddForce(new Vector2(0f,jumpForce));
+        animationCon.Jump();
     }
     
     void Update()

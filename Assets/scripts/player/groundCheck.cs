@@ -5,9 +5,11 @@ using UnityEngine;
 public class groundCheck : MonoBehaviour
 {
     public bool grounded = true;
+    bool wasGrounded = true;
 
     [SerializeField] LayerMask layerMask;
     [SerializeField] Collider2D colider;
+    [SerializeField] AnimationController animationCon;
 
     void Start()
     {
@@ -16,6 +18,10 @@ public class groundCheck : MonoBehaviour
 
     void Update()
     {
+        wasGrounded = grounded;
         grounded = colider.IsTouchingLayers(layerMask);
+        if(!wasGrounded && grounded){
+            animationCon.Land();
+        }
     }
 }
