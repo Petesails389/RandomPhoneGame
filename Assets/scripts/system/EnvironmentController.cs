@@ -17,7 +17,7 @@ public class EnvironmentController : MonoBehaviour
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject wallNormalPrefab;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject scoreUI;
+    [SerializeField] GameObject scoreUI; 
 
     public bool paused = false;
     public float currentSpeed;
@@ -29,7 +29,7 @@ public class EnvironmentController : MonoBehaviour
     void Start()
     {
         currentSpeed = baseSpeed;
-        spawnTimer = spawnDist;
+        spawnTimer = spawnDist-spawnVariability;
 
         score = 0f;
         scoreText = scoreUI.GetComponent(typeof(Text)) as Text;
@@ -80,6 +80,7 @@ public class EnvironmentController : MonoBehaviour
     {
         (gameObject.GetComponent(typeof(UIController)) as UIController).deathUItoggle();
         (player.GetComponent(typeof(AnimationController)) as AnimationController).Kill();
+        (player.GetComponent(typeof(BoxCollider2D)) as BoxCollider2D).enabled = false;
         paused = true;
     }
 }
