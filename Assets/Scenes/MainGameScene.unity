@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45c36652c8623a78bfcc52abfbd3c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 3
-  maxSpeed: 25
+  baseSpeed: 5
+  maxSpeed: 30
   speedIncPercent: 1
   spawnDist: 15
   spawnVariability: 5

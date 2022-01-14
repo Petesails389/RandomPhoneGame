@@ -124,4 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPercentage: 100
   spawnHeight: -4
+  width: 11
+  isObstacle: 0
   selfPrefab: {fileID: 6039928382459586813}
+  spawnedNew: 0

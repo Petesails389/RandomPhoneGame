@@ -53,7 +53,7 @@ public class EnvironmentController : MonoBehaviour
 
             //Obstacle controll
             if(spawnTimer <= 0f){
-                Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity);
+                //Instantiate(obstaclePrefab, new Vector3(15, -3, 0), Quaternion.identity);
                 spawnTimer = UnityEngine.Random.Range(-spawnVariability,spawnVariability) + spawnDist;
             }
             else{
